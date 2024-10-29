@@ -1,0 +1,255 @@
+:root {
+    --bgColor: #646464;
+    --bgColor2: #ff0d0d;
+    --fontColor: #ffffff;
+    --fontColorHover: #0246ff; /* New hover font color for better visibility */
+}
+
+.flex {
+    display: flex;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: clamp(14px, 3vw, 14px);
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+.nav {
+    height: 60px;
+    background-color: var(--bgColor);
+    padding: 0 5px;
+}
+
+nav .link {
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    display: flex;
+}
+
+nav .link a {
+    color: var(--fontColor);
+    text-decoration: none;
+    padding: 0 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+nav .link a:hover {
+    background-color: var(--fontColorHover); /* Enhanced hover color */
+}
+
+nav .link a img {
+    height: 50px;
+}
+
+nav .link a:first-child {
+    margin-right: auto;
+}
+nav .link a:first-child:hover {
+    background-color: var(--bgColor);
+}
+
+#sidebar2, .open_sidebar, .close_sidebar {
+    display: none;
+    height: 100vh;
+    color: black;
+    align-self: center;
+    justify-content: flex-end;
+}
+#overlay{
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+}
+
+@media (max-width: 800px) {
+    .open_sidebar, .close_sidebar {
+        display: flex;
+    }
+
+    svg {
+        fill: black;
+    }
+    .close_sidebar{
+        height: 60px;
+        width: 50%;
+    }
+    nav .link {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 2;
+        width: 70%;
+        height: 100vh;
+        background-color: transparent;
+        opacity: 1.3;
+        transition: .75s ease-out;
+    }
+
+    nav .link a {
+        height: 60px;
+        padding: 0 5px;
+        margin: 0px auto;
+        width: 100%;
+        display: flex; /* Adjusted to allow for better spacing */
+        align-items: center;
+        color: #ffffff;
+        transition: background-color 0.3s; /* Smooth transition */
+        background-color: #3274ee;
+    }
+    nav .link a:first-child {
+        margin-top: 0;
+    }
+
+    nav .link .close_sidebar {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    #sidebar:checked ~ .link {
+        right: -100%;
+        background: transparent;
+    }
+
+    #sidebar2:checked ~ #overlay {
+        background: transparent;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    
+    #sidebar2:checked ~ .link {
+        background: transparent;
+        right: 0;
+    }
+}
+
+.info{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 50vh;
+    width: 100vw;
+    gap: 2vw;
+}
+.info_child{
+    height: 22vh;
+    width: 40vw;
+    padding: 0 20px;
+}
+h2{
+    text-align: center;
+    margin-bottom: 0;
+}
+.Services p{
+    margin-top: 2px;
+    font-size: .9rem;
+}
+.schedule{
+    text-align: center;
+}
+@media(max-width:768px){
+    .Services h1{
+        margin: 14px;
+        font-size: 1.3rem;
+    }
+    .info, .info_child{
+        height: fit-content;
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .Services h2{
+        margin: 1px;
+        padding: 0px;
+        font-size: 1rem;
+    }
+    .Services p{
+        margin-top: 2px;
+        font-size: .8rem;
+    }
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+.footer{
+    margin-left: 3vw;
+    display: flex;
+    justify-content: space-around;
+}
+#footer_item{
+    width: fit-content;
+}
+.logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logo img{
+    height: 80px;
+    width: 80px;
+}
+.logo h1, .logo h3{
+    width: fit-content;
+}
+
+
+.footer .link{
+    display: flex;
+    flex-direction: column;
+}
+.social{
+    display: flex;
+    flex-direction: column;
+}
+.copyright{
+    width: 100%;
+    text-align: center;
+}
+@media (max-width: 768px) {
+    
+    .logo h1{
+        font-size: 1rem;
+    }
+
+    .logo h3{
+        font-size: .8rem;
+    }
+    .link{
+        display: none;
+    }    
+    .footer{
+        gap: 1vw;
+        margin-bottom: 10px;
+    }
+    .logo img{
+        height: 50px;
+        width: 50px;
+    }
+    #footer_item{
+        width: 40%;
+    }
+    #footer_item:first-child{
+        width: 20%;
+    }
+    
+    .copyright p{
+        font-size: smaller;
+    }
+}
