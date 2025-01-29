@@ -21,6 +21,7 @@ html {
 }
 
 .nav {
+    z-index: 1;
     height: 60px;
     background-color: var(--bgColor);
     padding: 0 5px;
@@ -66,7 +67,7 @@ nav .link a:first-child:hover {
     justify-content: flex-end;
 }
 .overlay{
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     z-index: -1;
 }
